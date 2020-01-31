@@ -1,0 +1,71 @@
+(ns psw.pages.about-page
+  (:require
+   [psw.icons :refer [star-solid]]
+   [markdown-to-hiccup.core :refer [md->hiccup component]]))
+
+(def col1-content
+  "
+#tl;dr
+- Engineering student
+- passionate about programing and computer science
+- Strongly self-motivated & deeply curious
+- Programming skills in Rust, C, Clojure, Pyhton, Javascript
+- Product Management experience
+- Linux/Unix experienced user.
+
+#About Me
+  I am a engineering student, passionate about computer programing, puzzle, and learning new things. I am also obsessed with human-machine interface design, reading, music and learning new things. I am currently looking for an internship in a mid-size tech startup, as a rust software engineer.
+  ")
+
+(def col2-content
+  "
+# Skills
+- Programming languages: Rust, C, Clojure, Python, Ruby, Javascript, bash
+- Unix programming
+- Functional & Object oriented programming
+- System Programming
+- Machine Learning: Deep Neural Networks, CNN, RNN, NLP...
+- Algotrithms and Data-structures
+  ")
+
+(def col3-content
+  "
+# Tools
+- Vim
+- shell: Bash, zsh, fish
+- Language Server Protocol
+- Valgrind, kcachegrind, gdb, lldb
+- Linux (Archlinux)
+  ")
+
+(defn about-page []
+  (fn []
+    [:div
+     [:div.main
+      [:div.title-bar
+       [:h1 "Marin Postma."]
+       [:h3 "Pretty good with computers"]]
+      [:div.container
+       (->>
+        col1-content
+        (md->hiccup)
+        (component))]
+      [:div.container
+       [:div.col (->>
+                  col2-content
+                  (md->hiccup)
+                  (component))]
+       [:div.col (->>
+                  col3-content
+                  (md->hiccup)
+                  (component))]]
+      [:div.container
+       [:div [:h1 "Languages"]
+        [:div#languages
+         [:div [:span (repeat 5 star-solid)] [:p "French"]]
+         [:div [:span (repeat 4 star-solid)] [:p "English"]]
+         [:div [:span (repeat 2 star-solid)] [:p "Spanish"]]
+         [:div [:span (repeat 2 star-solid)] [:p "Hebrew"]]]]]]
+     [:div#resume [:button "Get my Resume"]]]))
+
+
