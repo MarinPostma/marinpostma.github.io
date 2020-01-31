@@ -44,28 +44,27 @@
      [:div.main
       [:div.title-bar
        [:h1 "Marin Postma."]
-       [:h3 "Pretty good with computers"]]
-      [:div.container
-       (->>
-        col1-content
-        (md->hiccup)
-        (component))]
-      [:div.container
-       [:div.col (->>
-                  col2-content
-                  (md->hiccup)
-                  (component))]
-       [:div.col (->>
-                  col3-content
-                  (md->hiccup)
-                  (component))]]
-      [:div.container
-       [:div [:h1 "Languages"]
-        [:div#languages
-         [:div [:span (repeat 5 star-solid)] [:p "French"]]
-         [:div [:span (repeat 4 star-solid)] [:p "English"]]
-         [:div [:span (repeat 2 star-solid)] [:p "Spanish"]]
-         [:div [:span (repeat 2 star-solid)] [:p "Hebrew"]]]]]]
-     [:div#resume [:button "Get my Resume"]]]))
+       [:div.container
+        (->>
+         col1-content
+         (md->hiccup)
+         (component))]
+       [:div.container
+        [:div.col (->>
+                   col2-content
+                   (md->hiccup)
+                   (component))]
+        [:div.col (->>
+                   col3-content
+                   (md->hiccup)
+                   (component))]]
+       [:div.container
+        [:div [:h1 "Languages"]
+         [:div#languages
+          [:div [:span (repeat 5 star-solid)] [:p "French"]]
+          [:div [:span (repeat 4 star-solid)] [:p "English"]]
+          [:div [:span (repeat 2 star-solid)] [:p "Spanish"]]
+          [:div [:span (repeat 2 star-solid)] [:p "Hebrew"]]]]]]
+      [:div#resume [:button "Get my Resume"]]]]))
 
 
