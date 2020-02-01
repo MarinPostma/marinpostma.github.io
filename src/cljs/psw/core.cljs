@@ -1,62 +1,17 @@
 (ns psw.core
   (:require
    [psw.icons :refer [linkedin, github, clojure]]
+   [psw.router.routes :refer [router page-for]]
+   [psw.router.utils :refer [path-for]]
    [reagent.core :as reagent :refer [atom]]
    [reagent.session :as session]
    [reitit.frontend :as reitit]
    [clerk.core :as clerk]
-   [clojure.core.match :refer [match]]
-   [psw.pages.home-page :refer [home-page]]
-   [psw.pages.about-page :refer [about-page]]
-   [psw.pages.project-page :refer [project-page]]
    [accountant.core :as accountant]))
-
-;; -------------------------
-;; Routes
-
-
-(def router
-  (reitit/router
-   [["/" :index]
-    ["/contact" :contact]
-    ["/about" :about]
-    ["/projects" :projects]]))
-
-(defn path-for [route & [params]]
-  (if params
-    (:path (reitit/match-by-name router route params))
-    (:path (reitit/match-by-name router route))))
-
-(path-for :about)
-;; -------------------------
-;; Page components
-
-
-(defn contact-page []
-  (fn []
-    [:div.main
-     [:h1 "hello"]]))
-
-
-;; -------------------------
-;; Translate routes -> page components
-
-
-(defn page-for [route]
-  (match route
-    :index #'home-page
-    :projects #'project-page
-    :about #'about-page
-    :contact #'contact-page
-    :else #'home-page))
-
-
-;; -------------------------
-;; Page mounting component
-
 
 (defn header []
   (fn []
+    (.log js/console (path-for :projects))
     [:nav
      [:div.left
       [:ul

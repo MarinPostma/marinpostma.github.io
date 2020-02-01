@@ -1,7 +1,8 @@
 (ns psw.pages.home-page
   (:require
     ["react-terminal-component" :refer [ReactTerminal, ReactTerminalStateless]]
-   [reagent.core :as reagent :refer [atom]]
+    [reagent.core :as reagent :refer [atom]]
+    [accountant.core :as accountant]
     [cljs.pprint :refer [pprint]]
     ["javascript-terminal" :refer [EmulatorState, Outputs, defaultCommandMapping, OutputFactory, CommandMapping]]))
 
@@ -24,6 +25,20 @@
 \t- projects: go to my projects page
 \t- bio: go to my bio page"))}) 
                                                               ))
+                                               "optDef" {}
+                                               }
+                                      "resume" {
+                                               "function" (fn [state opts]
+                                                            (let [input (. opts join " ") ]
+                                                              (.open js/window "./assets/cv.pdf" "_blank" "fullscreen=yes") 
+                                                              (clj->js {:output ""})))
+                                               "optDef" {}
+                                               }
+                                      "projects" {
+                                               "function" (fn [state opts]
+                                                            (let [input (. opts join " ") ]
+                                                              (accountant/navigate! "/projects")
+                                                              (clj->js {:output ""})))
                                                "optDef" {}
                                                })))
         "outputs" (. Outputs create [(. OutputFactory makeTextOutput "Welcome to Marin's personal website\nType \"help\" to get started")])})))
