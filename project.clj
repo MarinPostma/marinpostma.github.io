@@ -12,6 +12,7 @@
                  [ring/ring-defaults "0.3.2"]
                  [markdown-to-hiccup "0.6.2"]
                  [hiccup "1.0.5"]
+                 [org.clojure/core.match "0.3.0"]
                  [yogthos/config "1.1.6"]
                  [org.clojure/clojurescript "1.10.597"
                   :scope "provided"]

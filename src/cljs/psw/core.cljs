@@ -5,6 +5,7 @@
    [reagent.session :as session]
    [reitit.frontend :as reitit]
    [clerk.core :as clerk]
+   [clojure.core.match :refer [match]]
    [psw.pages.home-page :refer [home-page]]
    [psw.pages.about-page :refer [about-page]]
    [psw.pages.project-page :refer [project-page]]
@@ -42,11 +43,12 @@
 
 
 (defn page-for [route]
-  (case route
+  (match route
     :index #'home-page
     :projects #'project-page
     :about #'about-page
-    :contact #'contact-page))
+    :contact #'contact-page
+    :else #'home-page))
 
 
 ;; -------------------------
