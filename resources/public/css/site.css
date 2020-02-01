@@ -16,6 +16,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between; }
+  #footer p {
+    display: flex; }
 
 .sc-bdVaJa {
   caret-color: #fbf1c7; }
@@ -117,7 +119,7 @@ nav {
 .main {
   animation: fadein 2s; }
   .main .title-bar h1 {
-    font-family: "Lexend", sans-serif;
+    font-family: "Cutive Mono", monospace;
     text-align: center;
     color: black;
     margin-bottom: 0; }

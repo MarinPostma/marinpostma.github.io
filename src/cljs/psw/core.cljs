@@ -73,7 +73,7 @@
   (fn []
     [:div#footer
      [:div [:p "copyright\u00A92019 Marin Postma"]]
-     [:div  [:p "made with love with " [:i.icon-clojure]]]]))
+     [:div  [:p "made with love with " [:i.icon-clojure clojure]]]]))
 
 (defn current-page []
   (fn []

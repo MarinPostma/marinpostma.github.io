@@ -9,7 +9,7 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap');
 $font-stack: 'Cutive Mono', monospace;
-$title-font: 'Lexend', sans-serif;
+$title-font: 'Cutive Mono', monospace;
 $subtitle-font: 'Quicksand', sans-serif;
 $base-font-size: 1.125em;
 
@@ -29,6 +29,9 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	p {
+		display: flex;
+	}
 }
 // terminal carret color
 .sc-bdVaJa {

@@ -35,7 +35,7 @@
 - shell: Bash, zsh, fish
 - Language Server Protocol
 - Valgrind, kcachegrind, gdb, lldb
-- Linux (Archlinux)
+- Linux 
   ")
 
 (defn about-page []
