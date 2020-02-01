@@ -8,7 +8,6 @@
    [psw.pages.home-page :refer [home-page]]
    [psw.pages.about-page :refer [about-page]]
    [psw.pages.project-page :refer [project-page]]
-   [cljs.pprint :refer [pprint]]
    [accountant.core :as accountant]))
 
 ;; -------------------------

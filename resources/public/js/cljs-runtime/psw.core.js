@@ -8,19 +8,18 @@ goog.require('clerk.core');
 goog.require('psw.pages.home_page');
 goog.require('psw.pages.about_page');
 goog.require('psw.pages.project_page');
-goog.require('cljs.pprint');
 goog.require('accountant.core');
 psw.core.router = reitit.frontend.router.cljs$core$IFn$_invoke$arity$1(new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["/",new cljs.core.Keyword(null,"index","index",-1531685915)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["/contact",new cljs.core.Keyword(null,"contact","contact",609093372)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["/about",new cljs.core.Keyword(null,"about","about",1423892543)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["/projects",new cljs.core.Keyword(null,"projects","projects",-364845983)], null)], null));
 psw.core.path_for = (function psw$core$path_for(var_args){
 var args__4795__auto__ = [];
-var len__4789__auto___55002 = arguments.length;
-var i__4790__auto___55003 = (0);
+var len__4789__auto___54580 = arguments.length;
+var i__4790__auto___54581 = (0);
 while(true){
-if((i__4790__auto___55003 < len__4789__auto___55002)){
-args__4795__auto__.push((arguments[i__4790__auto___55003]));
+if((i__4790__auto___54581 < len__4789__auto___54580)){
+args__4795__auto__.push((arguments[i__4790__auto___54581]));
 
-var G__55004 = (i__4790__auto___55003 + (1));
-i__4790__auto___55003 = G__55004;
+var G__54582 = (i__4790__auto___54581 + (1));
+i__4790__auto___54581 = G__54582;
 continue;
 } else {
 }
@@ -31,9 +30,9 @@ var argseq__4796__auto__ = ((((1) < args__4795__auto__.length))?(new cljs.core.I
 return psw.core.path_for.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),argseq__4796__auto__);
 });
 
-(psw.core.path_for.cljs$core$IFn$_invoke$arity$variadic = (function (route,p__54997){
-var vec__54998 = p__54997;
-var params = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54998,(0),null);
+(psw.core.path_for.cljs$core$IFn$_invoke$arity$variadic = (function (route,p__54575){
+var vec__54576 = p__54575;
+var params = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54576,(0),null);
 if(cljs.core.truth_(params)){
 return new cljs.core.Keyword(null,"path","path",-188191168).cljs$core$IFn$_invoke$arity$1(reitit.frontend.match_by_name.cljs$core$IFn$_invoke$arity$3(psw.core.router,route,params));
 } else {
@@ -44,11 +43,11 @@ return new cljs.core.Keyword(null,"path","path",-188191168).cljs$core$IFn$_invok
 (psw.core.path_for.cljs$lang$maxFixedArity = (1));
 
 /** @this {Function} */
-(psw.core.path_for.cljs$lang$applyTo = (function (seq54995){
-var G__54996 = cljs.core.first(seq54995);
-var seq54995__$1 = cljs.core.next(seq54995);
+(psw.core.path_for.cljs$lang$applyTo = (function (seq54573){
+var G__54574 = cljs.core.first(seq54573);
+var seq54573__$1 = cljs.core.next(seq54573);
 var self__4776__auto__ = this;
-return self__4776__auto__.cljs$core$IFn$_invoke$arity$variadic(G__54996,seq54995__$1);
+return self__4776__auto__.cljs$core$IFn$_invoke$arity$variadic(G__54574,seq54573__$1);
 }));
 
 psw.core.path_for(new cljs.core.Keyword(null,"about","about",1423892543));
@@ -58,15 +57,15 @@ return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMP
 });
 });
 psw.core.page_for = (function psw$core$page_for(route){
-var G__55001 = route;
-var G__55001__$1 = (((G__55001 instanceof cljs.core.Keyword))?G__55001.fqn:null);
-switch (G__55001__$1) {
+var G__54579 = route;
+var G__54579__$1 = (((G__54579 instanceof cljs.core.Keyword))?G__54579.fqn:null);
+switch (G__54579__$1) {
 case "index":
 return new cljs.core.Var(function(){return psw.pages.home_page.home_page;},new cljs.core.Symbol("psw.pages.home-page","home-page","psw.pages.home-page/home-page",1121761634,null),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"ns","ns",441598760),new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"file","file",-1269645878),new cljs.core.Keyword(null,"end-column","end-column",1425389514),new cljs.core.Keyword(null,"column","column",2078222095),new cljs.core.Keyword(null,"line","line",212345235),new cljs.core.Keyword(null,"end-line","end-line",1837326455),new cljs.core.Keyword(null,"arglists","arglists",1661989754),new cljs.core.Keyword(null,"doc","doc",1913296891),new cljs.core.Keyword(null,"test","test",577538877)],[new cljs.core.Symbol(null,"psw.pages.home-page","psw.pages.home-page",-331007053,null),new cljs.core.Symbol(null,"home-page","home-page",-850279575,null),"psw/pages/home_page.cljs",(16),(1),(33),(33),cljs.core.list(cljs.core.PersistentVector.EMPTY),null,(cljs.core.truth_(psw.pages.home_page.home_page)?psw.pages.home_page.home_page.cljs$lang$test:null)]));
 
 break;
 case "projects":
-return new cljs.core.Var(function(){return psw.pages.project_page.project_page;},new cljs.core.Symbol("psw.pages.project-page","project-page","psw.pages.project-page/project-page",-1688998015,null),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"ns","ns",441598760),new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"file","file",-1269645878),new cljs.core.Keyword(null,"end-column","end-column",1425389514),new cljs.core.Keyword(null,"column","column",2078222095),new cljs.core.Keyword(null,"line","line",212345235),new cljs.core.Keyword(null,"end-line","end-line",1837326455),new cljs.core.Keyword(null,"arglists","arglists",1661989754),new cljs.core.Keyword(null,"doc","doc",1913296891),new cljs.core.Keyword(null,"test","test",577538877)],[new cljs.core.Symbol(null,"psw.pages.project-page","psw.pages.project-page",-1025381456,null),new cljs.core.Symbol(null,"project-page","project-page",172445576,null),"psw/pages/project_page.cljs",19,1,32,32,cljs.core.list(cljs.core.PersistentVector.EMPTY),null,(cljs.core.truth_(psw.pages.project_page.project_page)?psw.pages.project_page.project_page.cljs$lang$test:null)]));
+return new cljs.core.Var(function(){return psw.pages.project_page.project_page;},new cljs.core.Symbol("psw.pages.project-page","project-page","psw.pages.project-page/project-page",-1688998015,null),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"ns","ns",441598760),new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"file","file",-1269645878),new cljs.core.Keyword(null,"end-column","end-column",1425389514),new cljs.core.Keyword(null,"column","column",2078222095),new cljs.core.Keyword(null,"line","line",212345235),new cljs.core.Keyword(null,"end-line","end-line",1837326455),new cljs.core.Keyword(null,"arglists","arglists",1661989754),new cljs.core.Keyword(null,"doc","doc",1913296891),new cljs.core.Keyword(null,"test","test",577538877)],[new cljs.core.Symbol(null,"psw.pages.project-page","psw.pages.project-page",-1025381456,null),new cljs.core.Symbol(null,"project-page","project-page",172445576,null),"psw/pages/project_page.cljs",(19),(1),(32),(32),cljs.core.list(cljs.core.PersistentVector.EMPTY),null,(cljs.core.truth_(psw.pages.project_page.project_page)?psw.pages.project_page.project_page.cljs$lang$test:null)]));
 
 break;
 case "about":
@@ -74,11 +73,11 @@ return new cljs.core.Var(function(){return psw.pages.about_page.about_page;},new
 
 break;
 case "contact":
-return new cljs.core.Var(function(){return psw.core.contact_page;},new cljs.core.Symbol("psw.core","contact-page","psw.core/contact-page",-535349850,null),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"ns","ns",441598760),new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"file","file",-1269645878),new cljs.core.Keyword(null,"end-column","end-column",1425389514),new cljs.core.Keyword(null,"column","column",2078222095),new cljs.core.Keyword(null,"line","line",212345235),new cljs.core.Keyword(null,"end-line","end-line",1837326455),new cljs.core.Keyword(null,"arglists","arglists",1661989754),new cljs.core.Keyword(null,"doc","doc",1913296891),new cljs.core.Keyword(null,"test","test",577538877)],[new cljs.core.Symbol(null,"psw.core","psw.core",1300499851,null),new cljs.core.Symbol(null,"contact-page","contact-page",-463507667,null),"psw/core.cljs",19,1,35,35,cljs.core.list(cljs.core.PersistentVector.EMPTY),null,(cljs.core.truth_(psw.core.contact_page)?psw.core.contact_page.cljs$lang$test:null)]));
+return new cljs.core.Var(function(){return psw.core.contact_page;},new cljs.core.Symbol("psw.core","contact-page","psw.core/contact-page",-535349850,null),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"ns","ns",441598760),new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"file","file",-1269645878),new cljs.core.Keyword(null,"end-column","end-column",1425389514),new cljs.core.Keyword(null,"column","column",2078222095),new cljs.core.Keyword(null,"line","line",212345235),new cljs.core.Keyword(null,"end-line","end-line",1837326455),new cljs.core.Keyword(null,"arglists","arglists",1661989754),new cljs.core.Keyword(null,"doc","doc",1913296891),new cljs.core.Keyword(null,"test","test",577538877)],[new cljs.core.Symbol(null,"psw.core","psw.core",1300499851,null),new cljs.core.Symbol(null,"contact-page","contact-page",-463507667,null),"psw/core.cljs",19,1,34,34,cljs.core.list(cljs.core.PersistentVector.EMPTY),null,(cljs.core.truth_(psw.core.contact_page)?psw.core.contact_page.cljs$lang$test:null)]));
 
 break;
 default:
-throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__55001__$1)].join('')));
+throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__54579__$1)].join('')));
 
 }
 });
