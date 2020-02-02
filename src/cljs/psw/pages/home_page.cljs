@@ -40,6 +40,13 @@
                                                               (accountant/navigate! "/projects")
                                                               (clj->js {:output ""})))
                                                "optDef" {}
+                                               }
+                                      "bio" {
+                                               "function" (fn [state opts]
+                                                            (let [input (. opts join " ") ]
+                                                              (accountant/navigate! "/about")
+                                                              (clj->js {:output ""})))
+                                               "optDef" {}
                                                })))
         "outputs" (. Outputs create [(. OutputFactory makeTextOutput "Welcome to Marin's personal website\nType \"help\" to get started")])})))
 
