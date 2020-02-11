@@ -65,6 +65,12 @@ body {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
   border-radius: 2px; }
 
+.loader {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  text-align: center; }
+
 nav {
   margin-left: 10vw;
   margin-right: 10vw;
@@ -165,6 +171,9 @@ nav {
   .main p {
     color: black;
     text-align: justify; }
+
+a {
+  color: black; }
 
 h1, h2, h3, h5, h6 {
   color: black; }

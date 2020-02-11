@@ -65,6 +65,6 @@
           [:div [:span (repeat 4 star-solid)] [:p "English"]]
           [:div [:span (repeat 2 star-solid)] [:p "Spanish"]]
           [:div [:span (repeat 2 star-solid)] [:p "Hebrew"]]]]]]
-      [:div#resume [:button "Get my Resume"]]]]))
+      [:div#resume [:button {:on-click (fn [e] (.open js/window "./assets/cv.pdf" "_blank" "fullscreen=yes"))}"Get my Resume"]]]]))
 
 
