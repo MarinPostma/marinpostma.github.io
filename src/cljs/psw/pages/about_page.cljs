@@ -9,7 +9,7 @@
 - Engineering student
 - passionate about programing and computer science
 - Strongly self-motivated & deeply curious
-- Programming skills in Rust, C, Clojure, Pyhton, Javascript
+- Programming skills in Rust, C, Clojure, Python, Javascript
 - Product Management experience
 - Linux/Unix experienced user.
 
@@ -25,7 +25,7 @@
 - Functional & Object oriented programming
 - System Programming
 - Machine Learning: Deep Neural Networks, CNN, RNN, NLP...
-- Algotrithms and Data-structures
+- Algorithms and Data-structures
   ")
 
 (def col3-content
