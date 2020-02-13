@@ -14,7 +14,7 @@
 - Linux/Unix experienced user.
 
 #About Me
-  I am a engineering student, passionate about computer programing, puzzle, and learning new things. I am also obsessed with human-machine interface design, reading, music and learning new things. I am currently looking for an internship in a mid-size tech startup, as a rust software engineer.
+  I am a engineering student, passionate about computer programing, puzzles, and learning new things. I am also obsessed with human-machine interface design, reading, music and learning new things. I am currently looking for an internship in a mid-size tech startup, as a software engineer.
   ")
 
 (def col2-content
