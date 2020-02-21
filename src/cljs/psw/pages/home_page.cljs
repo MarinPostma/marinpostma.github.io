@@ -21,13 +21,13 @@
                                                             (let [input (. opts join " ") ]
                                                               (clj->js {:output (. OutputFactory makeTextOutput (str 
 "The following commands are available:
-\t- resume: downloads a copy of my resume
+\t- cv downloads a copy of my resume
 \t- projects: go to my projects page
 \t- bio: go to my bio page"))}) 
                                                               ))
                                                "optDef" {}
                                                }
-                                      "resume" {
+                                      "cv" {
                                                "function" (fn [state opts]
                                                             (let [input (. opts join " ") ]
                                                               (.open js/window "./assets/cv.pdf" "_blank" "fullscreen=yes") 
