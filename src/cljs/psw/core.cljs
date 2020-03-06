@@ -21,8 +21,8 @@
        [:li>a {:href (path-for :contact)} "contact"]]]
      [:div.right
       [:ul
-       [:li>a {:href "blbab"} github]
-       [:li>a {:href "blbab"} linkedin]]]]))
+       [:li>a {:href "https://github.com/MarinPostma"} github]
+       [:li>a {:href "https://www.linkedin.com/in/marinpostma/"} linkedin]]]]))
 
 (defn footer []
   (fn []
