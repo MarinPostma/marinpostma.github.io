@@ -1,9 +1,0 @@
-{:lein         true
- :source-paths ["src"]
- :builds       {:app {:target     :browser
-                      :output-dir "resources/public/js"
-                      :asset-path "/js"
-                      :modules    {:app {:entries [psw.core] :init-fn psw.core/init!}}
-                      :devtools   {:after-load psw.core/mount-root}}}
- :dev-http     {3000 {:root    "resources/public"
-                      :handler psw.handler/app}}}
