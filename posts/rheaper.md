@@ -1,19 +1,19 @@
 # Rheap what you sow; your heap is ripe
 
-Greetings Visitor! Have you ever pulled you hairs profiling/debugging memory issues in your rust program? Uncle Adhoc may have just the right tool for you!
+Greetings Visitor! Have you ever pulled your hair profiling/debugging memory issues in your rust program? Uncle Adhoc may have just the right tool for you!
 
 No, no, it's not your standard Valgrind/Massif/Heaptrack... blog post (all those tools are fantastic by the way, you should absolutely have them in your belt!). No, today it's all about new stuff! Exciting!
 
 Alright Visitor, I hear you say: "Yikes, another heap profiler? I've been using X for more than 20 years, _it just works_™". But bear with me for a few more lines, I might just change your mind.
 
-Before anything, let me paint you the fuller picture. It was some time ago, a nice day so far, I am hacking on libsql-server, when I get a message from my colleague: there seems to be a leak in some of our production instances. That's not looking good, it's a very small leak, that only shows up on instances that receive the most traffic. It takes hours to become noticeable, and after days, the instance gets killed  with an out-of-memory(OOM) error. Already, I know that this is not going to be a pleasant experience for debug. I spin a new machine on the platform, instrument it with a bunch of tools, and I start looking for the leak.
+Before anything, let me paint you the fuller picture. It was some time ago, a nice day so far, I am hacking on libsql-server, when I get a message from my colleague: there seems to be a leak in some of our production instances. That's not looking good, it's a very small leak, that only shows up on instances that receive the most traffic. It takes hours to become noticeable, and after days, the instance gets killed  with an out-of-memory(OOM) error. Already, I know that this is not going to be a pleasant experience to debug. I spin up a new machine on the platform, instrument it with a bunch of tools, and I start looking for the leak.
 Valgrind doesn't find anything, but that's expected, we're writing rust here, so allocated memory gets freed, _eventually_ (albeit, maybe at the end of the program...). Massif and heaptrack are not very helpful either, The leak is too small to show up after collecting data for a couple dozen of minutes, and I quickly loose myself desperately taking guesses, exploring backtraces, peeling flamegraphs. It just feels like looking for a needle in a haystack (or should I say a hay_heap_?). I think to myself "I know _what_ I'm looking for, I just don't know _how_ to find it". The _what_, here are a bunch of small allocation that get allocated over time, and are never reclaimed after a long period of time. I even have a rough idea of how much we're leaking, that _should_ be helpful! The _how_, so far, is taking guesses. But there has to be a better way. Then, it strikes me. What if I could just query my heap? If instead of looking for patterns, I could describe them, and let the computer find them for me?
 
 The idea for rheaper is very simple, and yet, very effective. It records allocation events at runtime (nothing new), dump them to files (boring...), and then it structures that data in a SQLite3 file for you to query (Ah!). With that SQLite file handy, you can now have a chat with your heap, and ask it all the question you ever wanted to ask it. You want to know what's the biggest contributor to allocation in byte size, grouped by callsite? I got you. You want to know what's the average size of strings allocated by some function is your program? Not sure why you'd want that, but I got you! You want to know what are all the allocation that lived for more than some amount of time, and that were never deallocated at the end of the recording session? I. GOT. YOU. because, really, the only limit is your imagination.
 
-If you're still reading now, it probably means that I picked your interest, so let's reward it, and dive right into how rheaper works, and how to use.
+If you're still reading now, it probably means that I piqued your interest, so let's reward it, and dive right into how rheaper works, and how to use.
 
-Rheaper works by wrapping you global allocator in rust, and tracking calls to alloc and dealloc. It records metadata about those allocation, such as the size, the time of the event, the type of the event, backtraces..., and occasionally, it dumps that data to disk, in a raw format. When you enable Rheaper at runtime, it starts collecting event, and when you stop it, it flushes all events to disk. Then, the rheaper CLI takes events data, and writes it to a sqlite file, and voila, you can start analyzing. Let's see it in action:
+Rheaper works by wrapping your global allocator in rust, and tracking calls to alloc and dealloc. It records metadata about those allocation, such as the size, the time of the event, the type of the event, backtraces, and occasionally, it dumps that data to disk, in a raw format. When you enable Rheaper at runtime, it starts collecting events, and when you stop it, it flushes all the events to disk. Then, the rheaper CLI takes event data, and writes it to a sqlite file, and voila, you can start analyzing. Let's see it in action:
 
 First, create a new rust project, add the dependencies we'll need and install the rheaper cli:
 
@@ -224,8 +224,8 @@ sum(size)  avg(size)         live_for
 
 There it is Visitor, next time you're debugging memory in rust, you should give rheaper a shot.
 
-On a concluding note, rheaper has been put together in a busy Sunday afternoon. I'm sure there's a thousand ways to improve it, like building some nice UI on top of it, improving its performance, porting it to other languages... If you feel like contributing to the project, or just follow what's going on there, you can check it out at https://github.com/MarinPostma/rheaper
+On a concluding note, rheaper has been put together on a busy Sunday afternoon. I'm sure there's a thousand ways to improve it, like building some nice UI on top of it, improving its performance, porting it to other languages... If you feel like contributing to the project, or just follow what's going on there, you can check it out at https://github.com/MarinPostma/rheaper
 
-On another note, I'm note really the social media type, but I still enjoy a good chat. If you wanna say hi, you can join my [discord salon here](https://discord.gg/VYVZzqvc). Looking forward to chatting with you :)
+On another note, I'm not really the social media type, but I still enjoy a good chat. If you wanna say hi, you can join my [discord salon here](https://discord.gg/VYVZzqvc). Looking forward to chatting with you :)
 
 Ah, yes, for those of you that I kept hanging this long with my memory leak, I did find it with rheaper in the end! I recorded execution for about an hour, and it then took me less than half an hour to locate the source of the issue.
